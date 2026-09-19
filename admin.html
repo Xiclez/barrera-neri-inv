@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Guest List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Guest List Management</h1>
+            <p>Generador de accesos</p>
+        </header>
+
+        <section class="add-guest-section">
+            <form id="add-guest-form">
+                <input type="text" id="guest-name" placeholder="Nombre del invitado" required autocomplete="off">
+                <button type="submit" class="btn primary">Generar Invitación</button>
+            </form>
+        </section>
+
+        <section class="guest-list-section">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Status</th>
+                        <th>Link</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="guest-table-body">
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

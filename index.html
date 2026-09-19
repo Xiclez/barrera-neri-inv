@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- METADATOS OPEN GRAPH -->
+    <title>Invitación Exclusiva - {{GUEST_NAME}}</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="¡{{GUEST_NAME}}, estás invitado! - NERI x BARRERA">
+    <meta property="og:description" content="Abre tu invitación exclusiva, revisa los detalles y confirma tu asistencia al evento.">
+    <meta property="og:image" content="{{BASE_URL}}/assets/frame9.jpeg">
+    <meta property="og:url" content="{{BASE_URL}}/?id={{GUEST_ID}}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Paso 0: Botón de inicio para habilitar Autoplay con sonido -->
+        <div id="step-start" class="step active">
+            <div class="start-overlay">
+                <h1>NERI x BARRERA</h1>
+                <button id="btn-start" class="btn primary">Ver Invitación</button>
+            </div>
+        </div>
+
+        <!-- Paso 1: Video 1 (Sujetos firman y entregan) -->
+        <div id="step-vid1" class="step hidden">
+            <video id="video1" class="bg-media" playsinline>
+                <source src="assets/video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Paso 2: Frame 6 (Sobre esperando touch) -->
+        <div id="step-envelope" class="step hidden">
+            <img src="assets/frame6.jpeg" alt="Sobre de Invitación" class="bg-media">
+            <div class="guest-name-overlay">
+                <span id="guest-name-display">{{GUEST_NAME}}</span>
+            </div>
+            <div class="tap-instruction" id="open-envelope-btn">
+                <span>Toca para abrir</span>
+            </div>
+        </div>
+
+        <!-- Paso 3: Video 2 (Abriendo sobre) -->
+        <div id="step-vid2" class="step hidden">
+            <video id="video2" class="bg-media" playsinline>
+                <source src="assets/video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Paso 4: Frame 9 (Flyer y opciones) -->
+        <div id="step-flyer" class="step hidden">
+            <img src="assets/frame9.jpeg" alt="Flyer del Evento" class="bg-media">
+            <div class="actions-overlay">
+                <button id="btn-confirm" class="btn primary">Confirmar Reservación</button>
+                <button id="btn-decline" class="btn secondary">Me perderé este fiestón</button>
+            </div>
+        </div>
+
+        <!-- Paso 5: Agradecimiento -->
+        <div id="step-final" class="step hidden">
+            <div class="final-message-box">
+                <h1 id="final-title"></h1>
+                <p id="final-subtitle"></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
