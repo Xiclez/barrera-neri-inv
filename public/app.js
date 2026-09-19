@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const guestId = urlParams.get('id');
+    const guestName = urlParams.get('n') || 'Invitado'; // Recuperar de la URL para persistencia
 
     const stepStart = document.getElementById('step-start');
     const stepVid1 = document.getElementById('step-vid1');
@@ -12,28 +13,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnStart = document.getElementById('btn-start');
     const video1 = document.getElementById('video1');
     const video2 = document.getElementById('video2');
-    const guestNameDisplay = document.getElementById('guest-name-display');
     const openEnvelopeBtn = document.getElementById('open-envelope-btn');
     const btnConfirm = document.getElementById('btn-confirm');
     const btnDecline = document.getElementById('btn-decline');
     const finalTitle = document.getElementById('final-title');
     const finalSubtitle = document.getElementById('final-subtitle');
-
-    if (!guestId) {
-        guestNameDisplay.textContent = "Invitado Especial";
-    } else {
-        try {
-            const res = await fetch(`/api/guests/${guestId}`);
-            if (res.ok) {
-                const guest = await res.json();
-                guestNameDisplay.textContent = guest.name;
-            } else {
-                guestNameDisplay.textContent = "Invitado Especial";
-            }
-        } catch (error) {
-            guestNameDisplay.textContent = "Invitado Especial";
-        }
-    }
 
     btnStart.addEventListener('click', () => {
         stepStart.classList.replace('active', 'hidden');
@@ -73,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             await fetch(`/api/guests/${guestId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status })
+                body: JSON.stringify({ status, name: guestName }) // Enviamos el nombre por si Vercel borró la memoria
             });
         } catch (error) {
             console.error("Error updating status", error);

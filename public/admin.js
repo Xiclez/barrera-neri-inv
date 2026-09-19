@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = '';
         guests.forEach(guest => {
             const tr = document.createElement('tr');
-            const link = `${window.location.origin}/?id=${guest.id}`;
+            // Añadimos el parámetro &n= para asegurar que la metadata y el nombre funcionen sin base de datos
+            const link = `${window.location.origin}/?id=${guest.id}&n=${encodeURIComponent(guest.name)}`;
             
             let statusBadge = '';
             if(guest.status === 'confirmed') statusBadge = '<span class="badge confirmed">Confirmado</span>';
