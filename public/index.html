@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Invitación Exclusiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="step-start" class="step active">
+            <div class="start-overlay">
+                <h1>NERI x BARRERA</h1>
+                <button id="btn-start" class="btn primary">Ver Invitación</button>
+            </div>
+        </div>
+
+        <div id="step-vid1" class="step hidden">
+            <video id="video1" class="bg-media" playsinline muted>
+                <source src="assets/video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="step-envelope" class="step hidden">
+            <img src="assets/frame6.jpeg" alt="Sobre de Invitación" class="bg-media">
+            <div class="guest-name-overlay">
+                <span id="guest-name-display"></span>
+            </div>
+            <div class="tap-instruction" id="open-envelope-btn">
+                <span>Toca para abrir</span>
+            </div>
+        </div>
+
+        <div id="step-vid2" class="step hidden">
+            <video id="video2" class="bg-media" playsinline muted>
+                <source src="assets/video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="step-flyer" class="step hidden">
+            <img src="assets/frame9.jpeg" alt="Flyer del Evento" class="bg-media">
+            <div class="actions-overlay">
+                <button id="btn-confirm" class="btn primary">Confirmar Reservación</button>
+                <button id="btn-decline" class="btn secondary">Me perderé este fiestón</button>
+            </div>
+        </div>
+
+        <div id="step-final" class="step hidden">
+            <div class="final-message-box">
+                <h1 id="final-title"></h1>
+                <p id="final-subtitle"></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
